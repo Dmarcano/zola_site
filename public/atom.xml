@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Diego&#x27;s Personal Site</title>
+    <link rel="self" type="application/atom+xml" href="https://example.com/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://example.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-07-27T00:00:00+00:00</updated>
+    <id>https://example.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[WIP] A GTFS Feed</title>
+        <published>2025-07-27T00:00:00+00:00</published>
+        <updated>2025-07-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Diego Marcano
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/gtfs-feed/"/>
+        <id>https://example.com/blog/gtfs-feed/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/gtfs-feed/">&lt;h1 id=&quot;where-we-are&quot;&gt;Where we are&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[WIP] Interpretter Improvements</title>
+        <published>2025-07-27T00:00:00+00:00</published>
+        <updated>2025-07-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Diego Marcano
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/interpretter-improvements/"/>
+        <id>https://example.com/blog/interpretter-improvements/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/interpretter-improvements/">&lt;h1 id=&quot;where-we-are&quot;&gt;Where we are&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;refresh-on-the-project&quot;&gt;Refresh on the project&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;new-front-end&quot;&gt;New Front-end&lt;&#x2F;h2&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[WIP] Tuner over Some Weekend(s)</title>
+        <published>2025-07-27T00:00:00+00:00</published>
+        <updated>2025-07-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Diego Marcano
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/work-in-progress-a-tuner/"/>
+        <id>https://example.com/blog/work-in-progress-a-tuner/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/work-in-progress-a-tuner/">&lt;p&gt;Taking a small tuner and extending it to the Command Line and a quick and easy webassembly site&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
