@@ -5,8 +5,8 @@ projects %}
   <h2>Personal Projects</h2>
   <div class="article-list">
     {% for project in projects %}
-    <article class="article">
-      <div class="article-content">
+    <body>
+      <div>
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
 
@@ -42,7 +42,7 @@ projects %}
         </p>
         {% endif %}
       </div>
-    </article>
+    </body>
     {% endfor %}
   </div>
 </section>
