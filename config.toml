@@ -10,6 +10,8 @@ build_search_index = true
 theme = "duckquill"
 title = "Diego's Personal Site"
 
+feed_filenames = []
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -33,7 +35,6 @@ show_repo = false
 # Links used in the nav.
 # For local files use same link format as in Markdown,
 # i.e. "@/blog/_index.md".
-feed_filenames = []
 links = [
 	{ url = "@/blog/_index.md", name = "Blog" },
 ]
