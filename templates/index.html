@@ -1,11 +1,6 @@
-{% extends "base.html" %}
-
-{% block content %}
-{%- set projects = load_data(path="content/projects.json") -%}
-
-{{ section.content | safe }}
-
-{% if projects %}
+{% extends "base.html" %} {% block content %} {%- set projects =
+load_data(path="content/projects.json") -%} {{ section.content | safe }} {% if
+projects %}
 <section>
   <h2>My Projects</h2>
   <div class="article-list">
@@ -25,9 +20,7 @@
           <span class="tag">{{ tech }}</span>
           {% endfor %}
         </div>
-        {% endif %}
-        
-        {% if project.url %}
+        {% endif %} {% if project.url %}
         <p>
           <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
             View Project →
@@ -39,6 +32,4 @@
     {% endfor %}
   </div>
 </section>
-{% endif %}
-
-{% endblock content %}
+{% endif %} {% endblock content %}

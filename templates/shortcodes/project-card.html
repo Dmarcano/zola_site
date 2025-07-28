@@ -1,0 +1,53 @@
+<body>
+  <div class="project-card">
+    <!-- Title at the top -->
+    <div class="card-header">
+      <h3 class="card-title">{{ title }}</h3>
+    </div>
+
+    <!-- Description on left, image on right -->
+    <div class="card-body">
+      <div class="card-description">
+        <p>
+          This is a short description of the project. It explains what the
+          project does, the main features, and any other relevant information
+          that would help someone understand what this project is about.
+        </p>
+      </div>
+
+      {% if project.image %}
+      <div class="card-image">
+        <img
+          src="{{ project.image }}"
+          alt="{{ project.title }}"
+          loading="lazy"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+          "
+        />
+      </div>
+
+      {% endif %}
+
+      <div class="card-footer">
+        <a
+          href="{{ project.demo_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Project →
+        </a>
+        <a
+          href="{{ project.github_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          See on GitHub →
+        </a>
+      </div>
+    </div>
+  </div>
+</body>

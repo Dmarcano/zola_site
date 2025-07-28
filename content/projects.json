@@ -5,7 +5,7 @@
     "description": "A Chip8 virtual machine interpreter written in Rust and compiled to WebAssembly.",
     "github_url": "https://github.com/Dmarcano/rustChip8",
     "demo_url": "https://www.wasmchip8.diegomarcano.dev",
-    "image": "chip8_snake.png"
+    "image": "./content/images/chip8_snake.png"
   },
 
   {
@@ -13,7 +13,7 @@
     "title": "Face Blending App",
     "description": "Part of my Computer Vision final project. My partner and I implemented our own version of Laplacian Image Blending so we could blend our faces with the face of reference images nearly seamlessly. I'm currently working on finding a way of blending just facial features such as just a nose or eyes vs blending the whole face.",
     "github_url": "https://github.com/Dmarcano/faceBlending",
-    "image": "FaceBlendingFirst.png",
+    "image": "./images/FaceBlendingFirst.png",
     "demo_url": "https://drive.google.com/file/d/1p8pQMxuKee5ak4MFVfU3pqEkFQ0uKqaI/view?usp=sharing"
   },
 
