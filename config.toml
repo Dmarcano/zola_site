@@ -10,9 +10,9 @@ build_search_index = true
 theme = "duckquill"
 title = "Diego's Personal Site"
 
-feed_filenames = []
+feed_filenames = ["atom.xml"]
 
-generate_feeds = false 
+generate_feeds = true 
 
 [markdown]
 # Whether to do syntax highlighting
