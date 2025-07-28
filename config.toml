@@ -25,7 +25,7 @@ accent_color_dark = "#216880ff"
 
 [extra.nav]
 # Whether to show the Atom/RSS feed button in the nav
-show_feed = true
+show_feed = false
 # Whether to show the manual theme switcher in the nav
 show_theme_switcher = true
 # Whether to show the link to the source repository in the nav
