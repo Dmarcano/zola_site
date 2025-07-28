@@ -1,14 +1,15 @@
 # The URL the site will be built for
-base_url = "https://example.com"
+base_url = "https://diegomarcano.dev"
+title = "Diego's Personal Site"
+
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+build_search_index = false
 
 theme = "duckquill"
-title = "Diego's Personal Site"
 
 generate_feeds = true
 feed_filenames = ["atom.xml"]
