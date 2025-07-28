@@ -18,6 +18,11 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 
+accent_color = "#ff7800"
+# Ditto but for the dark theme.
+# If not set regular variant will be used.
+accent_color_dark = "#216880ff"
+
 [extra.nav]
 # Whether to show the Atom/RSS feed button in the nav
 show_feed = true
@@ -30,7 +35,6 @@ show_repo = false
 # i.e. "@/blog/_index.md".
 links = [
 	{ url = "@/blog/_index.md", name = "Blog" },
-	{ url = "@/landing/_index.md", name = "Home" }
 ]
 
 
