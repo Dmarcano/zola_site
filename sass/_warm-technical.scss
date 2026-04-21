@@ -1,0 +1,416 @@
+// ============================================================
+// Warm Technical — Duckquill overrides
+// Drop this file into sass/custom.scss (or similar) and @import it
+// from your style.scss, or paste into a dedicated sass/ file.
+//
+// It overrides Duckquill's CSS custom properties without
+// touching the theme's source files.
+// ============================================================
+
+// ---- FONT IMPORTS ----------------------------------------------
+// Add to templates/partials/head.html or your extra_head:
+// <link rel="preconnect" href="https://fonts.googleapis.com">
+// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+// <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+// ============================================================
+// PALETTE — light (cream + orange + teal + amber)
+// ============================================================
+:root {
+  // Accent
+  --accent-color: rgb(236 106 10);           // orange-6
+  --accent-color-alpha: rgb(236 106 10 / 0.14);
+
+  // Semantic named colors (override Duckquill's defaults)
+  --blue-fg:    rgb(21 129 145);             // teal-6 takes blue's slot
+  --blue-bg:    rgb(21 129 145 / 0.12);
+  --brown-fg:   rgb(168 62 0);               // orange-9
+  --brown-bg:   rgb(255 221 188 / 0.4);      // orange-1
+  --green-fg:   rgb(74 138 59);
+  --green-bg:   rgb(74 138 59 / 0.14);
+  --yellow-fg:  rgb(184 132 0);              // amber-7
+  --yellow-bg:  rgb(255 240 196 / 0.5);      // amber-1
+  --red-fg:     rgb(192 53 42);
+  --red-bg:     rgb(192 53 42 / 0.12);
+  --purple-fg:  rgb(77 93 155);              // shift purple warmer
+  --purple-bg:  rgb(77 93 155 / 0.12);
+
+  // Background — cream paper instead of accent-tinted white
+  --bg-color: #fbf3e4;
+  --bg-overlay: linear-gradient(rgba(251, 243, 228, 0.88), rgba(251, 243, 228, 0.88));
+  --glass-bg: rgb(247 236 214 / 0.75);
+
+  // Ink — warm near-black
+  --fg-color: rgb(29 20 10 / 0.88);
+  --fg-contrast: #fffaf3;
+  --fg-muted-1: rgb(29 20 10 / 0.04);
+  --fg-muted-2: rgb(29 20 10 / 0.08);
+  --fg-muted-3: rgb(29 20 10 / 0.16);
+  --fg-muted-4: rgb(29 20 10 / 0.45);
+  --fg-muted-5: rgb(29 20 10 / 0.6);
+
+  // Corners — tighter, tactile (not bubbly)
+  --rounded-corner:       0.625rem;   // 10px
+  --rounded-corner-small: 0.375rem;   // 6px
+
+  // Typography
+  --font-transitional: 'Fraunces', 'Charter', 'Bitstream Charter', Cambria, serif;
+  --font-old-style:    'Fraunces', 'Iowan Old Style', 'Palatino Linotype', serif;
+  --font-neo-grotesque:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                       Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-humanist:     'Inter', Seravek, 'Gill Sans Nova', Ubuntu, Calibri,
+                       'DejaVu Sans', sans-serif;
+  --font-monospace-code: 'JetBrains Mono', ui-monospace, 'Cascadia Code',
+                         'Source Code Pro', Menlo, Consolas, monospace;
+  --font-monospace-slab-serif: 'JetBrains Mono', 'Nimbus Mono PS',
+                               'Courier New', monospace;
+
+  // Transitions — slightly snappier
+  --transition: 0.18s;
+  --transition-longer: 0.32s;
+
+  // Shadows — warm cast
+  --shadow: 0 0 0 0.0625rem rgb(80 50 10 / 0.04),
+            0 0.0625rem 0.1875rem 0.0625rem rgb(80 50 10 / 0.06),
+            0 0.125rem 0.375rem 0.125rem rgb(80 50 10 / 0.04);
+  --shadow-raised: 0 0 0 0.0625rem rgb(80 50 10 / 0.08),
+                   0 0.125rem 0.375rem 0.125rem rgb(80 50 10 / 0.10),
+                   0 0.25rem 0.75rem 0.25rem rgb(80 50 10 / 0.06);
+  --shadow-glow: 0 0 0 0.0625rem var(--accent-color-alpha),
+                 0 0.125rem 0.375rem 0.125rem var(--accent-color-alpha),
+                 0 0.25rem 1.5rem 0.25rem var(--accent-color-alpha);
+}
+
+// ============================================================
+// PALETTE — dark (warm espresso)
+// ============================================================
+[data-theme="dark"] {
+  --accent-color: rgb(255 138 52);           // brighter orange for contrast
+  --accent-color-alpha: rgb(255 138 52 / 0.18);
+
+  --blue-fg:   rgb(75 180 194);
+  --brown-fg:  rgb(255 183 120);
+  --green-fg:  rgb(120 200 120);
+  --yellow-fg: rgb(240 182 58);
+  --red-fg:    rgb(240 120 100);
+  --purple-fg: rgb(165 160 220);
+
+  --bg-color: #17110a;
+  --bg-overlay: linear-gradient(rgba(20, 14, 6, 0.92), rgba(20, 14, 6, 0.92));
+  --glass-bg: rgb(31 24 17 / 0.72);
+
+  --fg-color: rgb(251 233 204);
+  --fg-contrast: rgb(26 15 4);
+  --fg-muted-1: rgb(255 220 170 / 0.04);
+  --fg-muted-2: rgb(255 220 170 / 0.08);
+  --fg-muted-3: rgb(255 220 170 / 0.18);
+  --fg-muted-4: rgb(255 220 170 / 0.45);
+  --fg-muted-5: rgb(255 220 170 / 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent-color: rgb(255 138 52);
+    --accent-color-alpha: rgb(255 138 52 / 0.18);
+    --blue-fg:   rgb(75 180 194);
+    --brown-fg:  rgb(255 183 120);
+    --green-fg:  rgb(120 200 120);
+    --yellow-fg: rgb(240 182 58);
+    --red-fg:    rgb(240 120 100);
+    --purple-fg: rgb(165 160 220);
+    --bg-color: #17110a;
+    --bg-overlay: linear-gradient(rgba(20, 14, 6, 0.92), rgba(20, 14, 6, 0.92));
+    --glass-bg: rgb(31 24 17 / 0.72);
+    --fg-color: rgb(251 233 204);
+    --fg-contrast: rgb(26 15 4);
+    --fg-muted-1: rgb(255 220 170 / 0.04);
+    --fg-muted-2: rgb(255 220 170 / 0.08);
+    --fg-muted-3: rgb(255 220 170 / 0.18);
+    --fg-muted-4: rgb(255 220 170 / 0.45);
+    --fg-muted-5: rgb(255 220 170 / 0.6);
+  }
+}
+
+// ============================================================
+// HEADLINE & BODY PAIRING
+// Duckquill already maps h1-h3 to --font-transitional and body
+// to --font-neo-grotesque, so our variable overrides do most
+// of the work. These rules fine-tune weights + rhythm.
+// ============================================================
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+h1 { letter-spacing: -0.025em; }
+
+body {
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+// ============================================================
+// NAV — sticky pill
+// ============================================================
+nav.sticked,
+.nav {
+  background: var(--glass-bg);
+  border: 1px solid var(--fg-muted-3);
+  border-radius: 999px;
+  box-shadow: var(--shadow-raised);
+  backdrop-filter: saturate(1.6) blur(10px);
+}
+
+.nav a,
+.nav button {
+  font-weight: 550;
+  letter-spacing: -0.005em;
+  transition: color var(--transition);
+}
+
+.nav a:hover {
+  color: var(--accent-color);
+  transform: none;
+}
+
+// ============================================================
+// BUTTONS — tactile, warm
+// ============================================================
+button,
+.button,
+a.button,
+input[type="submit"] {
+  font-family: var(--font-neo-grotesque);
+  font-weight: 550;
+  letter-spacing: -0.005em;
+  border-radius: var(--rounded-corner);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition),
+    border-color var(--transition);
+}
+
+// Primary button
+.button.primary,
+button.primary,
+.button[data-kind="primary"] {
+  background: var(--accent-color);
+  color: var(--fg-contrast);
+  border: 1px solid color-mix(in oklab, var(--accent-color) 70%, #000);
+  box-shadow: var(--shadow), inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+.button.primary:hover,
+button.primary:hover {
+  background: color-mix(in oklab, var(--accent-color) 90%, #000);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-raised);
+}
+.button.primary:active,
+button.primary:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow);
+}
+
+// ============================================================
+// ARTICLE LIST — post items get the "post-item" warm treatment
+// ============================================================
+.article-list article,
+.article-list .article {
+  background: color-mix(in oklab, var(--bg-color) 80%, #fff);
+  border: 1px solid var(--fg-muted-3);
+  border-radius: var(--rounded-corner);
+  padding: 1.5rem;
+  transition: all var(--transition-longer);
+}
+.article-list article:hover,
+.article-list .article:hover {
+  border-color: color-mix(in oklab, var(--accent-color) 40%, var(--fg-muted-3));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-raised);
+}
+
+.article-list h2 a,
+.article-list .article h2 a {
+  font-family: var(--font-transitional);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  transition: color var(--transition);
+}
+.article-list article:hover h2 a {
+  color: var(--accent-color);
+}
+
+// Article meta — monospace, caps
+.article-list .meta,
+article .meta,
+.article-list time,
+article time {
+  font-family: var(--font-monospace-code);
+  font-size: var(--font-size-x-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted-5);
+}
+
+// ============================================================
+// TAGS — small pills, monospace
+// ============================================================
+.tags a,
+a.tag,
+.tag {
+  font-family: var(--font-monospace-code);
+  font-size: var(--font-size-x-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  background: var(--fg-muted-1);
+  border: 1px solid var(--fg-muted-2);
+  border-radius: 999px;
+  transition: all var(--transition);
+}
+.tags a:hover,
+a.tag:hover {
+  background: var(--accent-color-alpha);
+  border-color: color-mix(in oklab, var(--accent-color) 35%, var(--fg-muted-3));
+  color: var(--accent-color);
+  transform: none;
+}
+
+// ============================================================
+// PROJECT CARD — from shortcodes/project-card.html
+// ============================================================
+.project-card {
+  background: color-mix(in oklab, var(--bg-color) 80%, #fff);
+  border: 1px solid var(--fg-muted-3);
+  border-radius: var(--rounded-corner);
+  overflow: hidden;
+  transition: all var(--transition-longer);
+}
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-raised);
+  border-color: color-mix(in oklab, var(--accent-color) 30%, var(--fg-muted-3));
+}
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--fg-muted-3);
+}
+.project-card h3 {
+  font-family: var(--font-transitional);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+// ============================================================
+// CODE — warm code block
+// ============================================================
+pre {
+  border: 1px solid var(--fg-muted-3);
+  border-radius: var(--rounded-corner);
+  background: color-mix(in oklab, var(--bg-color) 70%, #000) !important;
+}
+code:not(pre code) {
+  background: var(--fg-muted-1);
+  border: 1px solid var(--fg-muted-2);
+  border-radius: var(--rounded-corner-small);
+  padding: 0.125rem 0.375rem;
+  font-size: 0.92em;
+  color: color-mix(in oklab, var(--accent-color) 70%, var(--fg-color));
+}
+
+// ============================================================
+// LINKS — underline offset, accent color
+// ============================================================
+article a,
+.content a,
+main a {
+  color: var(--accent-color);
+  text-decoration-color: color-mix(in oklab, var(--accent-color) 45%, transparent);
+  text-underline-offset: 3px;
+}
+article a:hover,
+main a:hover {
+  text-decoration-color: var(--accent-color);
+}
+
+// ============================================================
+// CRT — make the shortcode's terminal banner warmer
+// (overrides _crt.scss defaults to our orange glow)
+// ============================================================
+.crt {
+  color: rgb(255 125 26);
+  text-shadow:
+    0 0 6px rgb(255 125 26 / 0.7),
+    0 0 12px rgb(255 125 26 / 0.4);
+  background:
+    radial-gradient(ellipse at center, #2a1a08 0%, #140a02 100%) !important;
+  border: 1px solid #3a2410;
+  border-radius: var(--rounded-corner);
+}
+
+// ============================================================
+// HR — hairline, not chunky
+// ============================================================
+hr {
+  border: 0;
+  border-top: 1px solid var(--fg-muted-3);
+  margin: 2.5rem 0;
+}
+
+// ============================================================
+// SELECTION
+// ============================================================
+::selection {
+  background: var(--accent-color-alpha);
+  color: var(--fg-color);
+}
+
+// ============================================================
+// ADD-ON: "device label" section header — optional utility.
+// Use in content with:
+//   <div class="section-head">
+//     <span class="section-head__label">§ 01 · Background</span>
+//     <span class="section-head__rule"></span>
+//   </div>
+// ============================================================
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--fg-muted-3);
+}
+.section-head__label {
+  font-family: var(--font-monospace-code);
+  font-size: var(--font-size-x-small);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted-5);
+}
+.section-head__rule { flex: 1; height: 1px; }
+
+// ============================================================
+// LED indicator — tiny status dot, optional
+// Use in content: <span class="led live"></span>
+// ============================================================
+.led {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent-color) 40%, transparent),
+    0 0 6px color-mix(in oklab, var(--accent-color) 55%, transparent);
+  vertical-align: 1px;
+}
+.led.ok   { background: var(--green-fg); box-shadow: 0 0 0 1px color-mix(in oklab, var(--green-fg) 40%, transparent), 0 0 6px color-mix(in oklab, var(--green-fg) 55%, transparent); }
+.led.warn { background: var(--yellow-fg); box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-fg) 40%, transparent), 0 0 6px color-mix(in oklab, var(--yellow-fg) 55%, transparent); }
+
+@keyframes ledPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+.led.live { animation: ledPulse 1.8s ease-in-out infinite; }
