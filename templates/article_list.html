@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%- set date_format = "%Y · %m · %d" -%}
+
+{%- if paginator.pages -%}
+  {%- set pages = paginator.pages -%}
+  {%- set total = paginator.total_pages -%}
+{%- elif section.pages -%}
+  {%- set pages = section.pages -%}
+  {%- set total = section.pages | length -%}
+{%- endif -%}
+
+{%- set newest = pages | first -%}
+
+<div class="blog-head">
+  <div class="va-eyebrow">
+    <span class="va-eyebrow__led"></span>
+    <span class="va-eyebrow__text">Diego's Corner · est. 2019</span>
+  </div>
+  <h1>{{ section.title }}</h1>
+  <p>{{ section.content | striptags }}</p>
+  <div class="blog-head__meta">
+    <span>0{{ total }} POSTS</span>
+    <span>·</span>
+    {%- if newest %}
+    <span>LAST UPDATED {{ newest.date | date(format=date_format) }}</span>
+    {%- endif %}
+    {%- if config.generate_feeds %}
+    <a class="rss-link" href="{{ get_url(path='atom.xml') }}">RSS →</a>
+    {%- endif %}
+  </div>
+</div>
+
+<div class="blog-list">
+  {%- for page in pages %}
+  {%- set title = page.title | replace(from="[WIP] ", to="") -%}
+  <a class="post-item" href="{{ page.permalink | safe }}">
+    <div class="post-item__tags">
+      {%- if page.title is containing("[WIP]") %}
+      <span class="tag tag--amber">WIP</span>
+      {%- endif %}
+      {%- if page.taxonomies.tags %}
+        {%- for tag in page.taxonomies.tags %}
+        {%- if tag == "Backend" or tag == "DSP" or tag == "Wasm" or tag == "CV" or tag == "transit" or tag == "nyc-subway" %}
+        <span class="tag tag--teal">{{ tag }}</span>
+        {%- else %}
+        <span class="tag">{{ tag }}</span>
+        {%- endif %}
+        {%- endfor %}
+      {%- elif page.extra.tags %}
+        {%- for tag in page.extra.tags %}
+        <span class="tag">{{ tag }}</span>
+        {%- endfor %}
+      {%- endif %}
+    </div>
+    <h3 class="post-item__title">{{ title }}</h3>
+    {%- if page.description %}
+    <p class="post-item__excerpt">{{ page.description }}</p>
+    {%- endif %}
+    <div class="post-item__meta">
+      {%- if page.date %}
+      <span>{{ page.date | date(format=date_format) }}</span>
+      {%- endif %}
+      {%- if page.authors %}
+      <span>BY {{ page.authors | join(sep=", ") | upper }}</span>
+      {%- endif %}
+      <span class="post-item__read">READ →</span>
+    </div>
+  </a>
+  {%- endfor %}
+</div>
+
+{%- if paginator.pages %}
+<nav id="paginator">
+  {%- if paginator.previous %}
+  <a id="paginator-previous" href="{{ paginator.previous }}">← Prev</a>
+  {%- endif %}
+  <span id="paginator-counter">{{ paginator.current_index }} / {{ paginator.number_pagers }}</span>
+  {%- if paginator.next %}
+  <a id="paginator-next" href="{{ paginator.next }}">Next →</a>
+  {%- endif %}
+</nav>
+{%- endif %}
+
+{% endblock content %}

@@ -1,5 +1,12 @@
 +++
+[extra]
+now_date = "Apr 2026"
+now_building = "a transit feed generator in Rust + small sampler using rust DSP crates."
+now_reading = "Designing Data-Intensive Applications"
+now_paused = "Chip8 interpreter improvements — will resume when the tuner ships."
 
+background_p1 = "Senior Software Engineer at Meta Platforms, working across infrastructure and full-stack roles. Today I focus primarily on product privacy and security for every app in Meta's Family of Apps."
+background_p2 = "My main interests outside of work lie in both software and physical engineering. I like using Rust in both web and embedded projects — you'll see that theme across most of what's here."
 +++
 
 {% crt() %}
@@ -9,9 +16,3 @@
 ```
 
 {% end %}
-
-## Background
-
-Hi! My name is Diego Marcano, a Senior Software Engineer at Meta Platform Inc. I've worked both on infrastructure and full stack roles and today primarily work on the product privacy and security for every single of Meta's Family of Apps.
-
-My main interests outside of work lie in both software and physical engineering. I like using Rust in both web and embedded projects.
